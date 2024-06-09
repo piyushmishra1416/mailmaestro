@@ -1,7 +1,8 @@
+// src/app/api/fetch-emails/route.ts
 import { google } from 'googleapis'
 import { getServerSession } from 'next-auth'
 import { NextResponse } from 'next/server'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route' // Correct import of authOptions
+import { authOptions } from '../auth/[...nextauth]/auth'// Import for use, not for export
 
 export async function GET(req: Request) {
   const session = await getServerSession(authOptions)
@@ -18,7 +19,7 @@ export async function GET(req: Request) {
 
     const response = await gmail.users.messages.list({
       userId: 'me',
-      maxResults: 10, // You can change the number of emails to fetch
+      maxResults: 10,
     })
 
     const emailPromises = response.data.messages?.map(async (message) => {
