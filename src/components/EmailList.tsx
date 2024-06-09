@@ -1,4 +1,3 @@
-// components/EmailList.tsx
 import { FC } from 'react'
 
 interface Email {
