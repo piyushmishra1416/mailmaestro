@@ -63,7 +63,7 @@ const EmailList: FC<EmailListProps> = ({ emails, isLoading }) => {
     return (
       <div className="text-center py-16 bg-gray-800/30 rounded-xl border border-gray-700 mt-4">
         <MdInbox className="text-6xl text-gray-500 mx-auto mb-4" />
-        <p className="text-gray-400 text-lg">No emails to display. Click "Fetch Emails" to get started.</p>
+        <p className="text-gray-400 text-lg">No emails to display. Click &quot;Fetch Emails&quot; to get started.</p>
       </div>
     );
   }

@@ -28,7 +28,7 @@ const LandingSection: FC<LandingSectionProps> = ({ onGetStarted }) => {
             Smart Email Classifier
           </h1>
           <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed px-4">
-            Automatically organize your emails using AI. Our tool leverages Google's Gemini AI 
+            Automatically organize your emails using AI. Our tool leverages Google&apos;s Gemini AI 
             to categorize your emails intelligently, helping you maintain a cleaner inbox.
           </p>
           
