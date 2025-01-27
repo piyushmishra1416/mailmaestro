@@ -1,4 +1,3 @@
-// lib/gmail.ts
 import { google } from 'googleapis'
 
 export const getEmails = async (accessToken: string, maxResults: number = 10) => {
@@ -10,7 +9,7 @@ export const getEmails = async (accessToken: string, maxResults: number = 10) =>
     userId: 'me',
     maxResults,
   })
-
+ 
   const emailPromises = response.data.messages?.map(async (message) => {
     const email = await gmail.users.messages.get({
       userId: 'me',
