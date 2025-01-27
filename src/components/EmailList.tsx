@@ -19,23 +19,23 @@ const EmailList: FC<EmailListProps> = ({ emails, isLoading }) => {
     switch (category?.toLowerCase()) {
       case 'important':
         return {
-          icon: <MdMarkEmailRead />,
-          classes: 'bg-green-500/10 text-green-500 border-green-500/20',
+          icon: <MdMarkEmailRead className="text-lg" />,
+          classes: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
         };
       case 'marketing':
         return {
-          icon: <MdLabel />,
-          classes: 'bg-yellow-500/10 text-yellow-500 border-yellow-500/20',
+          icon: <MdLabel className="text-lg" />,
+          classes: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
         };
       case 'spam':
         return {
-          icon: <MdWarning />,
-          classes: 'bg-red-500/10 text-red-500 border-red-500/20',
+          icon: <MdWarning className="text-lg" />,
+          classes: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
         };
       default:
         return {
-          icon: <MdInbox />,
-          classes: 'bg-gray-500/10 text-gray-400 border-gray-600/20',
+          icon: <MdInbox className="text-lg" />,
+          classes: 'bg-gray-500/20 text-gray-400 border-gray-600/30',
         };
     }
   };
@@ -77,16 +77,18 @@ const EmailList: FC<EmailListProps> = ({ emails, isLoading }) => {
             key={email.id} 
             className="group bg-gray-800/50 hover:bg-gray-800/70 p-6 rounded-xl border border-gray-700/50 transition-all duration-200 backdrop-blur-sm hover:border-gray-600"
           >
-            <div className="flex items-start justify-between">
-              <h3 className="font-semibold text-xl mb-2 text-gray-100 flex-1">{email.subject}</h3>
-              {email.category && (
-                <span className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium border ${categoryConfig.classes} ml-4`}>
+            {email.category && (
+              <div className="mb-3">
+                <span className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium border ${categoryConfig.classes}`}>
                   {categoryConfig.icon}
                   {email.category}
                 </span>
-              )}
+              </div>
+            )}
+            <div className="space-y-2">
+              <h3 className="font-semibold text-xl text-gray-100">{email.subject}</h3>
+              <p className="text-gray-400 line-clamp-2 leading-relaxed">{email.snippet}</p>
             </div>
-            <p className="text-gray-400 mb-3 line-clamp-2 leading-relaxed">{email.snippet}</p>
           </div>
         );
       })}
