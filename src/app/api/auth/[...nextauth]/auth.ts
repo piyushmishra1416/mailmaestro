@@ -1,5 +1,5 @@
 import { NextAuthOptions } from "next-auth";
-import GoogleProvider from 'next-auth/providers/google'
+import GoogleProvider from 'next-auth/providers/google';
 
 export const authOptions: NextAuthOptions = {
    providers: [
@@ -9,8 +9,7 @@ export const authOptions: NextAuthOptions = {
        authorization: {
          params: {
            response_type: "code",
-           redirect_uri: "http://localhost:3000/api/auth/callback/google",
-           scope: 'openid https://www.googleapis.com/auth/gmail.readonly  https://www.googleapis.com/auth/gmail.modify',
+           scope: 'openid https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.modify',
          }
        }
      }),
@@ -18,15 +17,15 @@ export const authOptions: NextAuthOptions = {
    secret: process.env.NEXTAUTH_SECRET,
    callbacks: {
      async session({ session, token }) {
-       session.accessToken = token.accessToken as string
-       return session
+       session.accessToken = token.accessToken as string;
+       return session;
      },
      async jwt({ token, account }) {
        if (account) {
-         token.accessToken = account.access_token
+         token.accessToken = account.access_token;
        }
-       return token
+       return token;
      },
    },
    debug: true, // Enable debug mode to log responses
- }
+};
